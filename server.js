@@ -24,8 +24,6 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
        //log the message in console 
 
        console.log(senderNickname+" :" +messageContent)
-
-       
         //create a message object 
        let  message = {"message":messageContent, "senderNickname":senderNickname}
           // send the message to the client side  
@@ -48,7 +46,7 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
 
 
 
-server.listen(5000,()=>{
+server.listen(3000,()=>{
 
 console.log('Node app is running on port 3000');
 
