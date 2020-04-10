@@ -4,11 +4,14 @@ app = express(),
 server = http.createServer(app),
 io = require('socket.io').listen(server);
 
-app.get('/', (req, res) => {
 app.set('port', (process.env.PORT || 3000));
 
-res.send('Chat Server is running on port 3000')
+app.get('/', (req, res) => {
+
+res.send('Chat Server is running on port',app.get('port'));
+
 });
+
 io.on('connection', (socket) => {
 
 console.log('user connected');
