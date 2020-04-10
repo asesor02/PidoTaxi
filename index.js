@@ -3,7 +3,9 @@ http = require('http'),
 app = express(),
 server = http.createServer(app),
 io = require('socket.io').listen(server);
+
 app.get('/', (req, res) => {
+app.set('port', (process.env.PORT || 3000));
 
 res.send('Chat Server is running on port 3000')
 });
@@ -46,12 +48,8 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
 
 });
 
+server.listen(app.get('port'), ()=>{
 
-
-var PORT = process.env.PORT || 3000;
-
-server.listen(PORT,()=>{
-
-console.log('Server Socket IO Running on port:'+PORT);
+console.log('Server Socket IO Running on port:', app.get('port'));
 
 });
