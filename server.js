@@ -51,12 +51,10 @@ console.log('user connected: ',socket.id);
 
 });
 
+var port = process.env.PORT || 3000;
 
+server.listen(port, ()=>{
 
-
-
-server.listen(3000,()=>{
-
-console.log('Node app is running on port 3000');
+console.log('Server Socket IO Running on port:'+ port);
 
 });
